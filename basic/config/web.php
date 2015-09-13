@@ -8,12 +8,19 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'oxyjimGZAfG4Mu8wyC5YPxWSZIFU56J1',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
+        ],
+        'defaultController' => [
+            'class' => 'app\components\DefaultController',
         ],
         'user' => [
             'identityClass' => 'app\models\User',

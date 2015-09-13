@@ -37,19 +37,35 @@ class TimeslotController extends DefaultController
     {
         //show list of timeslots for the logged user
         $user = $this->getIdentity();
-        $dataProvider = new ActiveDataProvider([
-            'query' => Timeslot::find()->where(['uid' => $user->id]),
+       $dataProvider = new ActiveDataProvider([
+            'query' => Timeslot::findBySql("SELECT * FROM timeslot WHERE uid = :uid", array(':uid'=>$user->id)),
         ]);
-
-
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
+
+
     }
 
     public function actionCreate()
     {
+        $user = $this->getIdentity();
+        $model = new Timeslot();
+        $model->uid = $user->id;
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+                Yii::$app->getSession()->setFlash('success', 'Aika lisätty');
+                $model = new Timeslot();
+            }
+            else{
+                Yii::$app->getSession()->setFlash('error', 'Tallennus ei onnistunut');
+            }
+        };
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
 
 
     }

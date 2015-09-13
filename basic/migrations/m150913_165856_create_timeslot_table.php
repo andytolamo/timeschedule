@@ -10,10 +10,8 @@ class m150913_165856_create_timeslot_table extends Migration
         $this->createTable('timeslot', array(
             'id' => 'pk AUTO_INCREMENT ',
             'uid' => 'int NOT NULL',
-            'start_date' => 'date NOT NULL',
-            'end_date' => 'date',
-            'start_time' => 'time',
-            'end_time' => 'time',
+            'start_time' => 'datetime',
+            'end_time' => 'datetime',
             'description' => 'varchar(120)',
 
         ));
@@ -25,7 +23,7 @@ class m150913_165856_create_timeslot_table extends Migration
 
         $this->dropTable('timeslot');
 
-        return false;
+        return true;
     }
 
     /*

@@ -9,8 +9,6 @@ class Timeslot extends ActiveRecord
 {
 
 
-
-
     /**
      * @inheritdoc
      */
@@ -22,17 +20,32 @@ class Timeslot extends ActiveRecord
 
     public function rules(){
     return [
-        [['start_date'],'date', 'format'=>'Y-m-d'],
-        [['end_date'],'date', 'format'=>'Y-m-d'],
-        [['end_time'],'date', 'format'=>'h:m:s'],
-        [['start_time'],'date', 'format'=>'h:m:s'],
+        [['end_time'],'date', 'format'=>'yyyy-mm-dd hh:mm:ss'],
+        [['start_time'],'date', 'format'=>'yyyy-mm-dd hh:mm:ss'],
         [['id'],'integer'],
         [['uid'],'integer'],
-        [['start_time', 'end_time', 'start_date', 'end_date', 'description', 'uid'], 'safe'],
-        [['start_date', 'uid'], 'required'],
+        [['start_time', 'end_time',  'description', 'uid'], 'safe'],
+        [['start_time', 'uid'], 'required'],
     ];
 }
 
+
+    /**
+     * Returns the attribute labels.
+     *
+     * See Model class for more details
+     *
+     * @return array attribute labels (name => label).
+     */
+    public function attributeLabels()
+    {
+        return [
+            'end_time' => 'Loppuu',
+            'start_time' => 'Alkaa',
+            'description' => 'Selite',
+            'id' => 'id'
+        ];
+    }
 
 
     /**
@@ -41,6 +54,14 @@ class Timeslot extends ActiveRecord
     public static function findByUserDate($uid, $date)
     {
         return self::find()->where(['uid'=>$uid, 'start_date'=>$date])->one();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public static function findById($id)
+    {
+        return self::find()->where(['id'=>$id])->one();
     }
 
 
