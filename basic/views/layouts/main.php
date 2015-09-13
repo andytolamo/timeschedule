@@ -20,6 +20,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -27,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Aikatilasto',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -38,7 +39,7 @@ AppAsset::register($this);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-              ['label' => 'Login', 'url' => ['/site/login']]
+              ['label' => 'Kirjaudu', 'url' => ['/site/login']]
             ],
         ]);
 
@@ -47,11 +48,11 @@ AppAsset::register($this);
         echo Nav::widget([
             'options' => ['class' => 'navbar-nav navbar-right'],
             'items' => [
-                ['label' => 'Home', 'url' => ['/site/index']],
-                ['label' => 'list', 'url' => ['/timeslot/']],
-                ['label' => 'create', 'url' => ['/timeslot/create']],
+                ['label' => 'Pääsivu', 'url' => ['/site/index']],
+                ['label' => 'Listaa tunnit', 'url' => ['/timeslot/']],
+                ['label' => 'Lisää tunteja', 'url' => ['/timeslot/create']],
                 [
-                    'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                    'label' => 'Kirjaudu ulos (' . Yii::$app->user->identity->username . ')',
                     'url' => ['/site/logout'],
                     'linkOptions' => ['data-method' => 'post']
                 ]

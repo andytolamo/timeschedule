@@ -20,7 +20,7 @@ $form->field($model, 'start_time')->widget(DateTimePicker::className(), [
     'size' => 'ms',
     'template' => '{input}',
     'pickButtonIcon' => 'glyphicon glyphicon-time',
-    'inline' => true,
+    'inline' => false,
     'clientOptions' => [
         'startView' => 1,
         'minView' => 0,
@@ -30,7 +30,7 @@ $form->field($model, 'start_time')->widget(DateTimePicker::className(), [
          'format' => 'yyy-mm-dd hh:mm:s', // if inline = false
         'todayBtn' => true
     ]
-])->textInput(['maxlength'=>10,'style'=>'width:300px']);?>
+])->textInput(['maxlength'=>10,'style'=>'width:200px']);?>
 
 </div>
 <div class="timepickers">
@@ -40,7 +40,7 @@ $form->field($model, 'end_time')->widget(DateTimePicker::className(), [
     'size' => 'ms',
     'template' => '{input}',
     'pickButtonIcon' => 'glyphicon glyphicon-time',
-    'inline' => true,
+    'inline' => false,
     'clientOptions' => [
         'startView' => 1,
         'minView' => 0,
@@ -50,10 +50,15 @@ $form->field($model, 'end_time')->widget(DateTimePicker::className(), [
         'format' => 'yyyy-mm-dd hh:mm:ss', // if inline = false
         'todayBtn' => true
     ]
-])->textInput(['maxlength'=>10, 'style'=>'width:300px']);?>
+])->textInput(['maxlength'=>10, 'style'=>'width:200px']);?>
 </div>
 
-<?= $form->field($model, 'description')->dropdownList(['Työ' => 'Työ', 'Loma' => 'Loma', 'Sairasloma'=>'Sairasloma', 'Muu'=>'Muu'],['maxlength'=>10, 'style'=>'width:300px']);?>
+
+<div>
+
+<?= $form->field($model, 'description')->dropdownList(['Työ' => 'Työ', 'Loma' => 'Loma', 'Sairasloma'=>'Sairasloma', 'Muu'=>'Muu'],['maxlength'=>10, 'style'=>'width:200px']);?>
+
+</div>
 
 <?php
 if(isset($model->id)){
