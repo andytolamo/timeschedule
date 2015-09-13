@@ -23,7 +23,7 @@ class m150912_201818_create_user_table extends Migration
     {
         $this->dropTable('user');
 
-        return true;;
+        return true;
     }
 
     /*
