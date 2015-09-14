@@ -14,7 +14,7 @@ class TimeslotController extends DefaultController
         return [
             'access' => [
                 'class' => \yii\filters\AccessControl::className(),
-                'only' => ['index', 'create', 'update'],
+                'only' => ['index', 'create', 'update', 'delete', 'view'],
                 'rules' => [
                     // deny all POST requests
                     [
@@ -44,9 +44,8 @@ class TimeslotController extends DefaultController
         return $this->render('index', [
             'dataProvider' => $dataProvider,
         ]);
-
-
     }
+
 
     public function actionCreate()
     {
@@ -71,9 +70,35 @@ class TimeslotController extends DefaultController
     }
 
 
-    public function actionUpdate()
+    public function actionUpdate($id)
     {
+        $user = $this->getIdentity();
+        $model =  $model = Timeslot::findByIdUid($id, $user->id);
+        $model->uid = $user->id;
 
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+                Yii::$app->getSession()->setFlash('success', 'Aika lisätty');
+            }
+            else{
+                Yii::$app->getSession()->setFlash('error', 'Tallennus ei onnistunut');
+            }
+        }
+
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+
+    }
+
+    public function actionDelete($id)
+    {
+        $user = $this->getIdentity();
+        $model =  $model = Timeslot::findByIdUid($id, $user->id);
+        $model->uid = $user->id;
+        $model->delete();
+        return $this->redirect('/timeslot/',302);
 
     }
 

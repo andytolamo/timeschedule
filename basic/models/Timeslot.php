@@ -20,8 +20,8 @@ class Timeslot extends ActiveRecord
 
     public function rules(){
     return [
-        [['end_time'],'date', 'format'=>'yyyy-mm-dd hh:mm:ss'],
-        [['start_time'],'date', 'format'=>'yyyy-mm-dd hh:mm:ss'],
+        [['end_time'],'date', 'format'=>'yyyy-mm-dd HH:mm:ss'],
+        [['start_time'],'date', 'format'=>'yyyy-mm-dd HH:mm:ss'],
         [['id'],'integer'],
         [['uid'],'integer'],
         [['start_time', 'end_time',  'description', 'uid'], 'safe'],
@@ -59,9 +59,9 @@ class Timeslot extends ActiveRecord
     /**
      * @inheritdoc
      */
-    public static function findById($id)
+    public static function findByIdUid($id, $uid)
     {
-        return self::find()->where(['id'=>$id])->one();
+        return self::find()->where(['id'=>$id, 'uid'=>$uid])->one();
     }
 
 

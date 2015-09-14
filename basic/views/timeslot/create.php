@@ -27,7 +27,7 @@ $form->field($model, 'start_time')->widget(DateTimePicker::className(), [
         'maxView' => 1,
         'autoclose' => true,
         'linkFormat' => 'yyyy-mm-dd hh:mm:ss', // if inline = true
-         'format' => 'yyy-mm-dd hh:mm:s', // if inline = false
+         'format' => 'yyyy-mm-dd hh:mm:ss', // if inline = false
         'todayBtn' => true
     ]
 ])->textInput(['maxlength'=>10,'style'=>'width:200px']);?>
@@ -60,11 +60,6 @@ $form->field($model, 'end_time')->widget(DateTimePicker::className(), [
 
 </div>
 
-<?php
-if(isset($model->id)){
-    $form->field($model, 'id')->hiddenInput();
-}
-?>
 
     <div class="form-group">
         <div class="col-lg-offset-1 col-lg-11">
