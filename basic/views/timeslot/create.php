@@ -26,8 +26,8 @@ $form->field($model, 'start_time')->widget(DateTimePicker::className(), [
         'minView' => 0,
         'maxView' => 1,
         'autoclose' => true,
-        'linkFormat' => 'yyyy-mm-dd hh:mm:ss', // if inline = true
-         'format' => 'yyyy-mm-dd hh:mm:ss', // if inline = false
+        'linkFormat' => 'yyyy-mm-dd hh:ii:ss', // if inline = true
+         'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
         'todayBtn' => true
     ]
 ])->textInput(['maxlength'=>10,'style'=>'width:200px']);?>
@@ -46,8 +46,8 @@ $form->field($model, 'end_time')->widget(DateTimePicker::className(), [
         'minView' => 0,
         'maxView' => 1,
         'autoclose' => true,
-        'linkFormat' => 'yyyy-mm-dd hh:mm:ss', // if inline = true
-        'format' => 'yyyy-mm-dd hh:mm:ss', // if inline = false
+        'linkFormat' => 'yyyy-mm-dd hh:ii:ss', // if inline = true
+        'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
         'todayBtn' => true
     ]
 ])->textInput(['maxlength'=>10, 'style'=>'width:200px']);?>
