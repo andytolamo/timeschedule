@@ -12,53 +12,53 @@ $form = ActiveForm::begin([
 <?php Yii::$app->session->getFlash('error'); ?>
 <?= Yii::$app->session->getFlash('success'); ?>
 
-
-<div class="timepickers">
-<?=
-$form->field($model, 'start_time')->widget(DateTimePicker::className(), [
-    'language' => 'fi',
-    'size' => 'ms',
-    'template' => '{input}',
-    'pickButtonIcon' => 'glyphicon glyphicon-time',
-    'inline' => false,
-    'clientOptions' => [
-        'startView' => 1,
-        'minView' => 0,
-        'maxView' => 1,
-        'autoclose' => true,
-        'linkFormat' => 'yyyy-mm-dd hh:ii:ss', // if inline = true
-         'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
-        'todayBtn' => true
-    ]
-])->textInput(['maxlength'=>10,'style'=>'width:200px']);?>
-
-</div>
-<div class="timepickers">
-<?=
-$form->field($model, 'end_time')->widget(DateTimePicker::className(), [
-    'language' => 'fi',
-    'size' => 'ms',
-    'template' => '{input}',
-    'pickButtonIcon' => 'glyphicon glyphicon-time',
-    'inline' => false,
-    'clientOptions' => [
-        'startView' => 1,
-        'minView' => 0,
-        'maxView' => 1,
-        'autoclose' => true,
-        'linkFormat' => 'yyyy-mm-dd hh:ii:ss', // if inline = true
-        'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
-        'todayBtn' => true
-    ]
-])->textInput(['maxlength'=>10, 'style'=>'width:200px']);?>
-</div>
-
-
 <div>
+    <div>
+    <?=
+    $form->field($model, 'start_time')->widget(DateTimePicker::className(), [
+        'language' => 'fi',
+        'size' => 'ms',
+        'template' => '{input}',
+        'pickButtonIcon' => 'glyphicon glyphicon-time',
+        'inline' => false,
+        'clientOptions' => [
+            'startView' => 1,
+            'minView' => 0,
+            'maxView' => 1,
+            'autoclose' => true,
+            'linkFormat' => 'yyyy-mm-dd hh:ii:ssxs', // if inline = true
+             'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
+            'todayBtn' => true
+        ]
+    ])->textInput(['maxlength'=>10,'style'=>'width:200px']);?>
+
+    </div>
+    <?=
+    $form->field($model, 'end_time')->widget(DateTimePicker::className(), [
+        'language' => 'fi',
+        'size' => 'ms',
+        'template' => '{input}',
+        'pickButtonIcon' => 'glyphicon glyphicon-time',
+        'inline' => false,
+        'clientOptions' => [
+            'startView' => 1,
+            'minView' => 0,
+            'maxView' => 1,
+            'autoclose' => true,
+            'linkFormat' => 'yyyy-mm-dd hh:ii:ss', // if inline = true
+            'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
+            'todayBtn' => true
+        ]
+    ])->textInput(['maxlength'=>10, 'style'=>'width:200px']);?>
+    </div>
+    <div>
 
 <?= $form->field($model, 'description')->dropdownList(['Työ' => 'Työ', 'Loma' => 'Loma', 'Sairasloma'=>'Sairasloma', 'Muu'=>'Muu'],['maxlength'=>10, 'style'=>'width:200px']);?>
 
 </div>
+    </div>
+
+
 
 
     <div class="form-group">

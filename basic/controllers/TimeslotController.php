@@ -33,6 +33,7 @@ class TimeslotController extends DefaultController
     }
 
 
+
     public function actionIndex()
     {
         //show list of timeslots for the logged user
