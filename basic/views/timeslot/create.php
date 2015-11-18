@@ -15,41 +15,24 @@ $form = ActiveForm::begin([
 <div>
     <div>
     <?=
-    $form->field($model, 'start_time')->widget(DateTimePicker::className(), [
+    $form->field($model, 'start_time')->widget(kartik\datetime\DateTimePicker::className(), [
         'language' => 'fi',
-        'size' => 'ms',
-        'template' => '{input}',
-        'pickButtonIcon' => 'glyphicon glyphicon-time',
-        'inline' => false,
-        'clientOptions' => [
-            'startView' => 1,
-            'minView' => 0,
-            'maxView' => 1,
-            'autoclose' => true,
-            'linkFormat' => 'yyyy-mm-dd hh:ii:ssxs', // if inline = true
-             'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
-            'todayBtn' => true
+ 	    'pluginOptions' => [
+ 		'calendarWeeks' => true,
+        'format' => 'yyyy-mm-dd hh:ii:ss'
         ]
-    ])->textInput(['maxlength'=>10,'style'=>'width:200px']);?>
+    ]);?>
 
     </div>
     <?=
-    $form->field($model, 'end_time')->widget(DateTimePicker::className(), [
+    $form->field($model, 'end_time')->widget(kartik\datetime\DateTimePicker::className(), [
         'language' => 'fi',
-        'size' => 'ms',
-        'template' => '{input}',
-        'pickButtonIcon' => 'glyphicon glyphicon-time',
-        'inline' => false,
-        'clientOptions' => [
-            'startView' => 1,
-            'minView' => 0,
-            'maxView' => 1,
-            'autoclose' => true,
-            'linkFormat' => 'yyyy-mm-dd hh:ii:ss', // if inline = true
-            'format' => 'yyyy-mm-dd hh:ii:ss', // if inline = false
-            'todayBtn' => true
+ 	    'pluginOptions' => [
+ 		'calendarWeeks' => true,
+        'format' => 'yyyy-mm-dd hh:ii:ss'
         ]
-    ])->textInput(['maxlength'=>10, 'style'=>'width:200px']);?>
+
+    ]);?>
     </div>
     <div>
 
